@@ -1,0 +1,21 @@
+
+  {
+	"name": "telex-kanban-board",
+	"version": "0.1.0",
+	"description": "A fully interactive Kanban board block with drag-and-drop task management, backed by a custom post type and taxonomy.",
+	"author": "WordPress Telex",
+	"license": "GPL-2.0-or-later",
+	"main": "build/index.js",
+	"scripts": {
+		"build": "wp-scripts build",
+		"format": "wp-scripts format",
+		"lint:css": "wp-scripts lint-style",
+		"lint:js": "wp-scripts lint-js",
+		"packages-update": "wp-scripts packages-update",
+		"plugin-zip": "wp-scripts plugin-zip",
+		"start": "wp-scripts start"
+	},
+    "devDependencies": {
+        "@wordpress/scripts": "^30.15.0"
+	}
+}

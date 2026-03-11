@@ -1,0 +1,14 @@
+/**
+ * Editor-only styles for the Kanban Board Block.
+ */
+
+.wp-block-telex-kanban-board {
+	.kanban-board-preview {
+		pointer-events: none;
+		user-select: none;
+	}
+
+	.components-placeholder {
+		min-height: 180px;
+	}
+}
