@@ -7,11 +7,11 @@
  * @param WP_Block $block      Block instance.
  */
 
-if ( ! function_exists( 'mkwpde_kanban_board_get_data' ) ) {
+if ( ! function_exists( 'mfgmicha_kanban_board_get_data' ) ) {
 	return;
 }
 
-$board_data = mkwpde_kanban_board_get_data();
+$board_data = mfgmicha_kanban_board_get_data();
 $can_edit   = current_user_can( 'edit_posts' ) ? '1' : '0';
 $rest_url   = esc_url( rest_url( '/' ) );
 $nonce      = wp_create_nonce( 'wp_rest' );
@@ -28,7 +28,7 @@ $wrapper_attributes = get_block_wrapper_attributes();
 	>
 		<?php if ( empty( $board_data ) ) : ?>
 			<p class="kanban-empty">
-				<?php esc_html_e( 'No columns found. Create columns under Tasks - Columns.', 'mkwpde-kanban-board' ); ?>
+				<?php esc_html_e( 'No columns found. Create columns under Tasks - Columns.', 'mfgmicha-kanban-board' ); ?>
 			</p>
 		<?php else : ?>
 			<?php foreach ( $board_data as $column ) : ?>
@@ -40,7 +40,7 @@ $wrapper_attributes = get_block_wrapper_attributes();
 					<div class="kanban-cards" data-column-id="<?php echo esc_attr( $column['id'] ); ?>">
 						<?php if ( empty( $column['tasks'] ) ) : ?>
 							<p class="kanban-empty">
-								<?php esc_html_e( 'No tasks yet', 'mkwpde-kanban-board' ); ?>
+								<?php esc_html_e( 'No tasks yet', 'mfgmicha-kanban-board' ); ?>
 							</p>
 						<?php else : ?>
 							<?php foreach ( $column['tasks'] as $task ) : ?>
@@ -51,7 +51,7 @@ $wrapper_attributes = get_block_wrapper_attributes();
 									<?php endif; ?>
 									<?php if ( '1' === $can_edit ) : ?>
 										<div class="kanban-card-actions">
-											<button class="kanban-card-delete" aria-label="<?php esc_attr_e( 'Delete task', 'mkwpde-kanban-board' ); ?>">&times;</button>
+											<button class="kanban-card-delete" aria-label="<?php esc_attr_e( 'Delete task', 'mfgmicha-kanban-board' ); ?>">&times;</button>
 										</div>
 									<?php endif; ?>
 								</div>
@@ -60,19 +60,19 @@ $wrapper_attributes = get_block_wrapper_attributes();
 					</div>
 					<?php if ( '1' === $can_edit ) : ?>
 						<div class="kanban-add-card">
-							<button class="kanban-add-btn">+ <?php esc_html_e( 'Add card', 'mkwpde-kanban-board' ); ?></button>
+							<button class="kanban-add-btn">+ <?php esc_html_e( 'Add card', 'mfgmicha-kanban-board' ); ?></button>
 							<div class="kanban-add-form" style="display: none;">
-								<input type="text" class="kanban-input kanban-input-title" placeholder="<?php esc_attr_e( 'Task title...', 'mkwpde-kanban-board' ); ?>" />
-								<textarea class="kanban-input kanban-textarea kanban-input-desc" placeholder="<?php esc_attr_e( 'Description (optional)...', 'mkwpde-kanban-board' ); ?>"></textarea>
+								<input type="text" class="kanban-input kanban-input-title" placeholder="<?php esc_attr_e( 'Task title...', 'mfgmicha-kanban-board' ); ?>" />
+								<textarea class="kanban-input kanban-textarea kanban-input-desc" placeholder="<?php esc_attr_e( 'Description (optional)...', 'mfgmicha-kanban-board' ); ?>"></textarea>
 								<div class="kanban-form-actions">
-									<button class="kanban-submit-btn"><?php esc_html_e( 'Add', 'mkwpde-kanban-board' ); ?></button>
-									<button class="kanban-cancel-btn"><?php esc_html_e( 'Cancel', 'mkwpde-kanban-board' ); ?></button>
+									<button class="kanban-submit-btn"><?php esc_html_e( 'Add', 'mfgmicha-kanban-board' ); ?></button>
+									<button class="kanban-cancel-btn"><?php esc_html_e( 'Cancel', 'mfgmicha-kanban-board' ); ?></button>
 								</div>
 							</div>
 						</div>
 					<?php else : ?>
 						<div class="kanban-login-notice">
-							<?php esc_html_e( 'Log in to add and manage tasks.', 'mkwpde-kanban-board' ); ?>
+							<?php esc_html_e( 'Log in to add and manage tasks.', 'mfgmicha-kanban-board' ); ?>
 						</div>
 					<?php endif; ?>
 				</div>
