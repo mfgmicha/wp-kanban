@@ -14,7 +14,7 @@ WordPress Kanban Board Block plugin.
 
 ## Project Structure
 
-- `telex-kanban-board.php` - Main plugin (CPT, taxonomy, REST API)
+- `plugin.php` - Main plugin (CPT, taxonomy, REST API)
 - `src/index.js` - Block registration
 - `src/edit.js` - Editor component
 - `src/save.js` - Save component
