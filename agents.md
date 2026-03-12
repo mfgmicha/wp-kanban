@@ -11,15 +11,15 @@ WordPress Kanban Board Block plugin.
 - `npm run lint:css` - Lint CSS
 - `npm run format` - Format code
 - `npm run plugin-zip` - Create plugin zip
-- `npm run commit` - Create conventional commit (interactive)
-- `npm run commit:push` - Commit and push atomically (interactive)
+- `npm run commit` - Create commit (opens editor)
+- `npm run commit:push` - Commit and push atomically
 
 ## Commit Workflow
 
 The project uses **conventional commits** with husky and commitlint:
 
 ```bash
-# Interactive commit (recommended)
+# Manual commit (opens editor)
 npm run commit
 
 # Or manual commit with:
