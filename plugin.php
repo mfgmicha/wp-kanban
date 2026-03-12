@@ -84,6 +84,7 @@ if ( ! function_exists( 'mkwpde_kanban_board_register_taxonomy' ) ) {
 			'rest_base'         => 'kanban-columns',
 			'hierarchical'      => false,
 			'show_admin_column' => true,
+			'sort'              => true,
 		);
 
 		register_taxonomy( 'kanban_column', 'kanban_task', $args );
@@ -354,7 +355,7 @@ if ( ! function_exists( 'mkwpde_kanban_board_get_data' ) ) {
 			array(
 				'taxonomy'   => 'kanban_column',
 				'hide_empty' => false,
-				'orderby'    => 'name',
+				'orderby'    => 'term_order',
 				'order'      => 'ASC',
 			)
 		);
