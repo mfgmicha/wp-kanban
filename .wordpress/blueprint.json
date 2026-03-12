@@ -18,8 +18,8 @@
 			"pluginPath": "wp-kanban-main/plugin.php"
 		},
 		{
-			"step": "wp-cli",
-			"command": "wp eval-php \"\n\\$columns = array(\n  'To Do' => array('Design landing page', 'Set up development environment', 'Create wireframes'),\n  'In Progress' => array('Implement user authentication'),\n  'Done' => array('Project kickoff meeting', 'Requirements gathering')\n);\nforeach (\\$columns as \\$col_name => \\$tasks) {\n  \\$term = wp_insert_term(\\$col_name, 'kanban_column');\n  \\$col_id = is_wp_error(\\$term) ? 0 : \\$term['term_id'];\n  \\$order = 0;\n  foreach(\\$tasks as \\$task_title) {\n    \\$task_id = wp_insert_post(array('post_type' => 'kanban_task', 'post_title' => \\$task_title, 'post_status' => 'publish'));\n    if (\\$task_id && !is_wp_error(\\$task_id)) {\n      wp_set_object_terms(\\$task_id, array(\\$col_id), 'kanban_column');\n      update_post_meta(\\$task_id, 'kanban_order', \\$order++);\n    }\n  }\n}\necho 'Done';\n\""
+			"step": "runPHP",
+			"code": "include 'wp-load.php'; $columns = array('To Do' => array('Design landing page', 'Set up development environment', 'Create wireframes'), 'In Progress' => array('Implement user authentication'), 'Done' => array('Project kickoff meeting', 'Requirements gathering')); foreach ($columns as $col_name => $tasks) { $term = wp_insert_term($col_name, 'kanban_column'); $col_id = is_wp_error($term) ? 0 : $term['term_id']; $order = 0; foreach($tasks as $task_title) { $task_id = wp_insert_post(array('post_type' => 'kanban_task', 'post_title' => $task_title, 'post_status' => 'publish')); if ($task_id && !is_wp_error($task_id)) { wp_set_object_terms($task_id, array($col_id), 'kanban_column'); update_post_meta($task_id, 'kanban_order', $order++); } } } echo 'Done';"
 		},
 		{
 			"step": "wp-cli",
