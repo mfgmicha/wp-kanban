@@ -15,7 +15,7 @@
 		},
 		{
 			"step": "activatePlugin",
-			"pluginPath": "wp-kanban-main/telex-kanban-board.php"
+			"pluginPath": "wp-kanban-main/plugin.php"
 		},
 		{
 			"step": "wp-cli",
