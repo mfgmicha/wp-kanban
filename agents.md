@@ -34,7 +34,7 @@ Commit types: `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `chore` (lower
 
 ## Project Structure
 
-- `telex-kanban-board.php` - Main plugin (CPT, taxonomy, REST API)
+- `plugin.php` - Main plugin (CPT, taxonomy, REST API)
 - `src/index.js` - Block registration
 - `src/edit.js` - Editor component
 - `src/save.js` - Save component
@@ -47,7 +47,7 @@ Commit types: `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `chore` (lower
 
 - Custom post type: `kanban_task`
 - Custom taxonomy: `kanban_column`
-- REST API under `/wp/v2/kanban-*` and `/telex-kanban/v1/`
+- REST API under `/wp/v2/kanban-*` and `/mkwpde-kanban/v1/`
 
 ## Requirements
 

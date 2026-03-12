@@ -1,8 +1,8 @@
 {
-	"name": "telex-kanban-board",
+	"name": "mkwpde-kanban-board",
 	"version": "0.1.0",
 	"description": "A fully interactive Kanban board block with drag-and-drop task management, backed by a custom post type and taxonomy.",
-	"author": "WordPress Telex",
+	"author": "WP Kanban",
 	"license": "GPL-2.0-or-later",
 	"main": "build/index.js",
 	"engines": {

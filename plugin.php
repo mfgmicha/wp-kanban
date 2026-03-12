@@ -5,12 +5,12 @@
  * Version:           0.1.0
  * Requires at least: 6.6
  * Requires PHP:      7.4
- * Author:            WordPress Telex
+ * Author:            WP Kanban
  * License:           GPLv2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       telex-kanban-board
+ * Text Domain:       mkwpde-kanban-board
  *
- * @package TelexKanbanBoard
+ * @package WpKanbanBoard
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -20,30 +20,30 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Register the block.
  */
-if ( ! function_exists( 'telex_kanban_board_block_init' ) ) {
-	function telex_kanban_board_block_init() {
+if ( ! function_exists( 'mkwpde_kanban_board_block_init' ) ) {
+	function mkwpde_kanban_board_block_init() {
 		register_block_type( __DIR__ . '/build' );
 	}
 }
-add_action( 'init', 'telex_kanban_board_block_init' );
+add_action( 'init', 'mkwpde_kanban_board_block_init' );
 
 /**
  * Register the kanban_task custom post type.
  */
-if ( ! function_exists( 'telex_kanban_board_register_cpt' ) ) {
-	function telex_kanban_board_register_cpt() {
+if ( ! function_exists( 'mkwpde_kanban_board_register_cpt' ) ) {
+	function mkwpde_kanban_board_register_cpt() {
 		$labels = array(
-			'name'               => __( 'Tasks', 'telex-kanban-board' ),
-			'singular_name'      => __( 'Task', 'telex-kanban-board' ),
-			'add_new'            => __( 'Add New Task', 'telex-kanban-board' ),
-			'add_new_item'       => __( 'Add New Task', 'telex-kanban-board' ),
-			'edit_item'          => __( 'Edit Task', 'telex-kanban-board' ),
-			'new_item'           => __( 'New Task', 'telex-kanban-board' ),
-			'view_item'          => __( 'View Task', 'telex-kanban-board' ),
-			'search_items'       => __( 'Search Tasks', 'telex-kanban-board' ),
-			'not_found'          => __( 'No tasks found', 'telex-kanban-board' ),
-			'not_found_in_trash' => __( 'No tasks found in Trash', 'telex-kanban-board' ),
-			'menu_name'          => __( 'Tasks', 'telex-kanban-board' ),
+			'name'               => __( 'Tasks', 'mkwpde-kanban-board' ),
+			'singular_name'      => __( 'Task', 'mkwpde-kanban-board' ),
+			'add_new'            => __( 'Add New Task', 'mkwpde-kanban-board' ),
+			'add_new_item'       => __( 'Add New Task', 'mkwpde-kanban-board' ),
+			'edit_item'          => __( 'Edit Task', 'mkwpde-kanban-board' ),
+			'new_item'           => __( 'New Task', 'mkwpde-kanban-board' ),
+			'view_item'          => __( 'View Task', 'mkwpde-kanban-board' ),
+			'search_items'       => __( 'Search Tasks', 'mkwpde-kanban-board' ),
+			'not_found'          => __( 'No tasks found', 'mkwpde-kanban-board' ),
+			'not_found_in_trash' => __( 'No tasks found in Trash', 'mkwpde-kanban-board' ),
+			'menu_name'          => __( 'Tasks', 'mkwpde-kanban-board' ),
 		);
 
 		$args = array(
@@ -60,20 +60,20 @@ if ( ! function_exists( 'telex_kanban_board_register_cpt' ) ) {
 		register_post_type( 'kanban_task', $args );
 	}
 }
-add_action( 'init', 'telex_kanban_board_register_cpt' );
+add_action( 'init', 'mkwpde_kanban_board_register_cpt' );
 
 /**
  * Register the kanban_column taxonomy.
  */
-if ( ! function_exists( 'telex_kanban_board_register_taxonomy' ) ) {
-	function telex_kanban_board_register_taxonomy() {
+if ( ! function_exists( 'mkwpde_kanban_board_register_taxonomy' ) ) {
+	function mkwpde_kanban_board_register_taxonomy() {
 		$labels = array(
-			'name'          => __( 'Columns', 'telex-kanban-board' ),
-			'singular_name' => __( 'Column', 'telex-kanban-board' ),
-			'add_new_item'  => __( 'Add New Column', 'telex-kanban-board' ),
-			'edit_item'     => __( 'Edit Column', 'telex-kanban-board' ),
-			'search_items'  => __( 'Search Columns', 'telex-kanban-board' ),
-			'menu_name'     => __( 'Columns', 'telex-kanban-board' ),
+			'name'          => __( 'Columns', 'mkwpde-kanban-board' ),
+			'singular_name' => __( 'Column', 'mkwpde-kanban-board' ),
+			'add_new_item'  => __( 'Add New Column', 'mkwpde-kanban-board' ),
+			'edit_item'     => __( 'Edit Column', 'mkwpde-kanban-board' ),
+			'search_items'  => __( 'Search Columns', 'mkwpde-kanban-board' ),
+			'menu_name'     => __( 'Columns', 'mkwpde-kanban-board' ),
 		);
 
 		$args = array(
@@ -89,13 +89,13 @@ if ( ! function_exists( 'telex_kanban_board_register_taxonomy' ) ) {
 		register_taxonomy( 'kanban_column', 'kanban_task', $args );
 	}
 }
-add_action( 'init', 'telex_kanban_board_register_taxonomy' );
+add_action( 'init', 'mkwpde_kanban_board_register_taxonomy' );
 
 /**
  * Register the menu_order meta field for REST API access.
  */
-if ( ! function_exists( 'telex_kanban_board_register_meta' ) ) {
-	function telex_kanban_board_register_meta() {
+if ( ! function_exists( 'mkwpde_kanban_board_register_meta' ) ) {
+	function mkwpde_kanban_board_register_meta() {
 		register_post_meta(
 			'kanban_task',
 			'kanban_order',
@@ -111,19 +111,19 @@ if ( ! function_exists( 'telex_kanban_board_register_meta' ) ) {
 		);
 	}
 }
-add_action( 'init', 'telex_kanban_board_register_meta' );
+add_action( 'init', 'mkwpde_kanban_board_register_meta' );
 
 /**
  * Register custom REST endpoints.
  */
-if ( ! function_exists( 'telex_kanban_board_register_rest_routes' ) ) {
-	function telex_kanban_board_register_rest_routes() {
+if ( ! function_exists( 'mkwpde_kanban_board_register_rest_routes' ) ) {
+	function mkwpde_kanban_board_register_rest_routes() {
 		register_rest_route(
-			'telex-kanban/v1',
+			'mkwpde-kanban/v1',
 			'/move-task',
 			array(
 				'methods'             => 'POST',
-				'callback'            => 'telex_kanban_board_move_task',
+				'callback'            => 'mkwpde_kanban_board_move_task',
 				'permission_callback' => function () {
 					return current_user_can( 'edit_posts' );
 				},
@@ -149,11 +149,11 @@ if ( ! function_exists( 'telex_kanban_board_register_rest_routes' ) ) {
 		);
 
 		register_rest_route(
-			'telex-kanban/v1',
+			'mkwpde-kanban/v1',
 			'/create-task',
 			array(
 				'methods'             => 'POST',
-				'callback'            => 'telex_kanban_board_create_task',
+				'callback'            => 'mkwpde_kanban_board_create_task',
 				'permission_callback' => function () {
 					return current_user_can( 'edit_posts' );
 				},
@@ -179,11 +179,11 @@ if ( ! function_exists( 'telex_kanban_board_register_rest_routes' ) ) {
 		);
 
 		register_rest_route(
-			'telex-kanban/v1',
+			'mkwpde-kanban/v1',
 			'/delete-task',
 			array(
 				'methods'             => 'POST',
-				'callback'            => 'telex_kanban_board_delete_task',
+				'callback'            => 'mkwpde_kanban_board_delete_task',
 				'permission_callback' => function () {
 					return current_user_can( 'edit_posts' );
 				},
@@ -198,11 +198,11 @@ if ( ! function_exists( 'telex_kanban_board_register_rest_routes' ) ) {
 		);
 
 		register_rest_route(
-			'telex-kanban/v1',
+			'mkwpde-kanban/v1',
 			'/reorder',
 			array(
 				'methods'             => 'POST',
-				'callback'            => 'telex_kanban_board_reorder_tasks',
+				'callback'            => 'mkwpde_kanban_board_reorder_tasks',
 				'permission_callback' => function () {
 					return current_user_can( 'edit_posts' );
 				},
@@ -216,25 +216,25 @@ if ( ! function_exists( 'telex_kanban_board_register_rest_routes' ) ) {
 		);
 	}
 }
-add_action( 'rest_api_init', 'telex_kanban_board_register_rest_routes' );
+add_action( 'rest_api_init', 'mkwpde_kanban_board_register_rest_routes' );
 
 /**
  * Callback for moving a task to a new column.
  */
-if ( ! function_exists( 'telex_kanban_board_move_task' ) ) {
-	function telex_kanban_board_move_task( $request ) {
+if ( ! function_exists( 'mkwpde_kanban_board_move_task' ) ) {
+	function mkwpde_kanban_board_move_task( $request ) {
 		$task_id   = $request->get_param( 'task_id' );
 		$column_id = $request->get_param( 'column_id' );
 		$order     = $request->get_param( 'order' );
 
 		$post = get_post( $task_id );
 		if ( ! $post || 'kanban_task' !== $post->post_type ) {
-			return new WP_Error( 'invalid_task', __( 'Invalid task.', 'telex-kanban-board' ), array( 'status' => 404 ) );
+			return new WP_Error( 'invalid_task', __( 'Invalid task.', 'mkwpde-kanban-board' ), array( 'status' => 404 ) );
 		}
 
 		$term = get_term( $column_id, 'kanban_column' );
 		if ( ! $term || is_wp_error( $term ) ) {
-			return new WP_Error( 'invalid_column', __( 'Invalid column.', 'telex-kanban-board' ), array( 'status' => 404 ) );
+			return new WP_Error( 'invalid_column', __( 'Invalid column.', 'mkwpde-kanban-board' ), array( 'status' => 404 ) );
 		}
 
 		wp_set_object_terms( $task_id, array( $column_id ), 'kanban_column' );
@@ -254,8 +254,8 @@ if ( ! function_exists( 'telex_kanban_board_move_task' ) ) {
 /**
  * Callback for creating a new task.
  */
-if ( ! function_exists( 'telex_kanban_board_create_task' ) ) {
-	function telex_kanban_board_create_task( $request ) {
+if ( ! function_exists( 'mkwpde_kanban_board_create_task' ) ) {
+	function mkwpde_kanban_board_create_task( $request ) {
 		$title       = $request->get_param( 'title' );
 		$description = $request->get_param( 'description' );
 		$column_id   = $request->get_param( 'column_id' );
@@ -294,13 +294,13 @@ if ( ! function_exists( 'telex_kanban_board_create_task' ) ) {
 /**
  * Callback for deleting a task.
  */
-if ( ! function_exists( 'telex_kanban_board_delete_task' ) ) {
-	function telex_kanban_board_delete_task( $request ) {
+if ( ! function_exists( 'mkwpde_kanban_board_delete_task' ) ) {
+	function mkwpde_kanban_board_delete_task( $request ) {
 		$task_id = $request->get_param( 'task_id' );
 
 		$post = get_post( $task_id );
 		if ( ! $post || 'kanban_task' !== $post->post_type ) {
-			return new WP_Error( 'invalid_task', __( 'Invalid task.', 'telex-kanban-board' ), array( 'status' => 404 ) );
+			return new WP_Error( 'invalid_task', __( 'Invalid task.', 'mkwpde-kanban-board' ), array( 'status' => 404 ) );
 		}
 
 		wp_delete_post( $task_id, true );
@@ -317,12 +317,12 @@ if ( ! function_exists( 'telex_kanban_board_delete_task' ) ) {
 /**
  * Callback for bulk reordering tasks.
  */
-if ( ! function_exists( 'telex_kanban_board_reorder_tasks' ) ) {
-	function telex_kanban_board_reorder_tasks( $request ) {
+if ( ! function_exists( 'mkwpde_kanban_board_reorder_tasks' ) ) {
+	function mkwpde_kanban_board_reorder_tasks( $request ) {
 		$tasks = $request->get_param( 'tasks' );
 
 		if ( ! is_array( $tasks ) ) {
-			return new WP_Error( 'invalid_data', __( 'Invalid tasks data.', 'telex-kanban-board' ), array( 'status' => 400 ) );
+			return new WP_Error( 'invalid_data', __( 'Invalid tasks data.', 'mkwpde-kanban-board' ), array( 'status' => 400 ) );
 		}
 
 		foreach ( $tasks as $task_data ) {
@@ -348,8 +348,8 @@ if ( ! function_exists( 'telex_kanban_board_reorder_tasks' ) ) {
 /**
  * Helper: Get all kanban board data.
  */
-if ( ! function_exists( 'telex_kanban_board_get_data' ) ) {
-	function telex_kanban_board_get_data() {
+if ( ! function_exists( 'mkwpde_kanban_board_get_data' ) ) {
+	function mkwpde_kanban_board_get_data() {
 		$columns = get_terms(
 			array(
 				'taxonomy'   => 'kanban_column',

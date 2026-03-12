@@ -24,7 +24,7 @@
       "padding": true
     }
   },
-  "textdomain": "telex-kanban-board",
+  "textdomain": "mkwpde-kanban-board",
   "editorScript": "file:./index.js",
   "editorStyle": "file:./index.css",
   "style": "file:./style-index.css",

@@ -1,6 +1,6 @@
 === Kanban Board Block ===
 
-Contributors:      WordPress Telex
+Contributors:      WP Kanban
 Tags:              block, kanban, project-management, tasks, drag-and-drop
 Tested up to:      6.8
 Stable tag:        0.1.0
@@ -32,7 +32,7 @@ The Kanban Board Block brings project management directly into your WordPress si
 
 == Installation ==
 
-1. Upload the plugin files to the `/wp-content/plugins/telex-kanban-board` directory, or install the plugin through the WordPress plugins screen directly.
+1. Upload the plugin files to the `/wp-content/plugins/mkwpde-kanban-board` directory, or install the plugin through the WordPress plugins screen directly.
 2. Activate the plugin through the 'Plugins' screen in WordPress.
 3. Create some Column terms under Tasks > Columns (e.g., "To Do", "In Progress", "Done").
 4. Optionally create Task posts and assign them to columns.
