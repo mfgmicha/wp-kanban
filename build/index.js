@@ -277,7 +277,7 @@ module.exports = window["wp"]["i18n"];
   \************************/
 (module) {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"telex/kanban-board","version":"0.1.0","title":"Kanban Board","category":"widgets","icon":"clipboard","description":"A fully interactive Kanban board with drag-and-drop task management, backed by a custom post type and taxonomy.","example":{},"attributes":{},"supports":{"html":false,"align":["wide","full"],"color":{"background":true,"text":false},"spacing":{"margin":true,"padding":true}},"textdomain":"telex-kanban-board","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"mkwpde/kanban-board","version":"0.1.0","title":"Kanban Board","category":"widgets","icon":"clipboard","description":"A fully interactive Kanban board with drag-and-drop task management, backed by a custom post type and taxonomy.","example":{},"attributes":{},"supports":{"html":false,"align":["wide","full"],"color":{"background":true,"text":false},"spacing":{"margin":true,"padding":true}},"textdomain":"telex-kanban-board","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
 
 /***/ }
 

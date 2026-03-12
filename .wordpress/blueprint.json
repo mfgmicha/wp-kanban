@@ -19,7 +19,7 @@
 		},
 		{
 			"step": "wp-cli",
-			"command": "wp post create --post_type=page --post_title='Kanban Board' --post_name='kanban' --post_content='<!-- wp:telex/kanban-board /-->' --post_status=publish"
+			"command": "wp post create --post_type=page --post_title='Kanban Board' --post_name='kanban' --post_content='<!-- wp:mkwpde/kanban-board /-->' --post_status=publish"
 		}
 	]
 }
