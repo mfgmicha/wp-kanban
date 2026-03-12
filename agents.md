@@ -16,8 +16,6 @@ WordPress Kanban Board Block plugin.
 - `npm run lint:css` - Lint CSS
 - `npm run format` - Format code
 - `npm run plugin-zip` - Create plugin zip
-- `npm run commit` - Create commit (opens editor)
-- `npm run commit:push` - Commit and push atomically
 
 ## Commit Workflow
 
