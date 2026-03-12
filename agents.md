@@ -30,7 +30,7 @@ git commit -m "type: description"
 npm run commit:push
 ```
 
-Commit types: `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `chore`
+Commit types: `Feat`, `Fix`, `Docs`, `Style`, `Refactor`, `Test`, `Chore` (capitalized)
 
 ## Project Structure
 
