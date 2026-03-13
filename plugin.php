@@ -498,9 +498,8 @@ if ( ! function_exists( 'mfgmicha_kanban_board_get_data' ) ) {
 			array(
 				'taxonomy'   => 'kanban_column',
 				'hide_empty' => false,
-				'orderby'    => 'meta_value_num',
+				'orderby'    => 'id',
 				'order'      => 'ASC',
-				'meta_key'   => 'order',
 			)
 		);
 
