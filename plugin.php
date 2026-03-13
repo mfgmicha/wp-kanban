@@ -102,10 +102,10 @@ if ( ! function_exists( 'mfgmicha_kanban_board_add_term_order_rest_field' ) ) {
 			'order',
 			array(
 				'get_callback'    => function ( $term ) {
-					return (int) get_term_meta( $term['id'], 'order', true );
+					return (int) get_term_meta( $term['id'], 'kanban_column_order', true );
 				},
 				'update_callback' => function ( $value, $term ) {
-					update_term_meta( $term->term_id, 'order', (int) $value );
+					update_term_meta( $term->term_id, 'kanban_column_order', (int) $value );
 				},
 				'schema'          => array(
 					'type'        => 'integer',
@@ -132,7 +132,7 @@ add_filter( 'manage_edit-kanban_column_columns', 'mfgmicha_kanban_board_add_orde
 if ( ! function_exists( 'mfgmicha_kanban_board_order_column_content' ) ) {
 	function mfgmicha_kanban_board_order_column_content( $content, $column_name, $term_id ) {
 		if ( 'order' === $column_name ) {
-			$order = get_term_meta( $term_id, 'order', true );
+			$order = get_term_meta( $term_id, 'kanban_column_order', true );
 			$content = esc_html( $order ?: '0' );
 		}
 		return $content;
@@ -161,7 +161,7 @@ add_filter( 'get_terms_args', 'mfgmicha_kanban_board_order_column_request', 10, 
 
 if ( ! function_exists( 'mfgmicha_kanban_board_edit_order_field' ) ) {
 	function mfgmicha_kanban_board_edit_order_field( $term ) {
-		$order = get_term_meta( $term->term_id, 'order', true );
+		$order = get_term_meta( $term->term_id, 'kanban_column_order', true );
 		?>
 		<tr class="form-field term-order-wrap">
 			<th scope="row"><label for="term-order"><?php esc_html_e( 'Order', 'mfgmicha-kanban-board' ); ?></label></th>
@@ -175,7 +175,7 @@ add_action( 'kanban_column_edit_form_fields', 'mfgmicha_kanban_board_edit_order_
 if ( ! function_exists( 'mfgmicha_kanban_board_save_order_field' ) ) {
 	function mfgmicha_kanban_board_save_order_field( $term_id ) {
 		if ( isset( $_POST['term_order'] ) ) {
-			update_term_meta( $term_id, 'order', absint( $_POST['term_order'] ) );
+			update_term_meta( $term_id, 'kanban_column_order', absint( $_POST['term_order'] ) );
 		}
 	}
 }
@@ -202,7 +202,7 @@ if ( ! function_exists( 'mfgmicha_kanban_board_register_meta' ) ) {
 
 		register_term_meta(
 			'kanban_column',
-			'order',
+			'kanban_column_order',
 			array(
 				'show_in_rest' => true,
 				'single'       => true,
@@ -481,7 +481,7 @@ if ( ! function_exists( 'mfgmicha_kanban_board_reorder_columns' ) ) {
 
 			$term = get_term( $column_id, 'kanban_column' );
 			if ( $term && ! is_wp_error( $term ) ) {
-				update_term_meta( $column_id, 'order', $order );
+				update_term_meta( $column_id, 'kanban_column_order', $order );
 			}
 		}
 
@@ -498,8 +498,9 @@ if ( ! function_exists( 'mfgmicha_kanban_board_get_data' ) ) {
 			array(
 				'taxonomy'   => 'kanban_column',
 				'hide_empty' => false,
-				'orderby'    => 'id',
+				'orderby'    => 'meta_value_num',
 				'order'      => 'ASC',
+				'meta_key'   => 'kanban_column_order',
 			)
 		);
 

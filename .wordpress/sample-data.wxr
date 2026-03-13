@@ -29,7 +29,7 @@
 		<wp:term_parent>0</wp:term_parent>
 		<wp:term_slug>to-do</wp:term_slug>
 		<wp:termmeta>
-			<wp:meta_key>order</wp:meta_key>
+			<wp:meta_key>kanban_column_order</wp:meta_key>
 			<wp:meta_value>1</wp:meta_value>
 		</wp:termmeta>
 	</item>
@@ -47,7 +47,7 @@
 		<wp:term_parent>0</wp:term_parent>
 		<wp:term_slug>in-progress</wp:term_slug>
 		<wp:termmeta>
-			<wp:meta_key>order</wp:meta_key>
+			<wp:meta_key>kanban_column_order</wp:meta_key>
 			<wp:meta_value>2</wp:meta_value>
 		</wp:termmeta>
 	</item>
@@ -65,7 +65,7 @@
 		<wp:term_parent>0</wp:term_parent>
 		<wp:term_slug>done</wp:term_slug>
 		<wp:termmeta>
-			<wp:meta_key>order</wp:meta_key>
+			<wp:meta_key>kanban_column_order</wp:meta_key>
 			<wp:meta_value>3</wp:meta_value>
 		</wp:termmeta>
 	</item>
