@@ -14,7 +14,7 @@ export default function Edit() {
 		async function fetchBoard() {
 			try {
 				const columns = await apiFetch( {
-					path: '/wp/v2/kanban-columns?per_page=100&orderby=meta_value_num&meta_key=order',
+					path: '/wp/v2/kanban-columns?per_page=100',
 				} );
 
 				if ( ! columns || columns.length === 0 ) {
