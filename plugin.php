@@ -333,9 +333,52 @@ if ( ! function_exists( 'mfgmicha_kanban_board_register_rest_routes' ) ) {
 				),
 			)
 		);
+
+		register_rest_route(
+			'mfgmicha-kanban/v1',
+			'/columns',
+			array(
+				'methods'             => 'GET',
+				'callback'            => 'mfgmicha_kanban_board_get_columns',
+				'permission_callback' => '__return_true',
+			)
+		);
 	}
 }
 add_action( 'rest_api_init', 'mfgmicha_kanban_board_register_rest_routes' );
+
+/**
+ * Callback for getting columns with proper ordering.
+ */
+if ( ! function_exists( 'mfgmicha_kanban_board_get_columns' ) ) {
+	function mfgmicha_kanban_board_get_columns() {
+		$columns = get_terms(
+			array(
+				'taxonomy'   => 'kanban_column',
+				'hide_empty' => false,
+				'orderby'    => 'meta_value_num',
+				'order'      => 'ASC',
+				'meta_key'   => 'kanban_column_order',
+			)
+		);
+
+		if ( is_wp_error( $columns ) ) {
+			return array();
+		}
+
+		$columns_data = array();
+		foreach ( $columns as $column ) {
+			$columns_data[] = array(
+				'id'    => $column->term_id,
+				'name'  => $column->name,
+				'slug'  => $column->slug,
+				'order' => (int) get_term_meta( $column->term_id, 'kanban_column_order', true ),
+			);
+		}
+
+		return rest_ensure_response( $columns_data );
+	}
+}
 
 /**
  * Callback for moving a task to a new column.
